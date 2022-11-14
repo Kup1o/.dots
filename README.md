@@ -47,12 +47,12 @@ yay -S tmux
 ```
 12. Install AppImages
 ```
-https://github.com/Figma-Linux/figma-linux/releases/download/v0.10.0/figma-linux_0.10.0_linux_x86_64.AppImag
-screenkey
-https://todoist.com/linux_app/appimage
-joplin
-https://github.com/OneMoreGres/ScreenTranslator/releases/download/3.3.0/ScreenTranslator-3.3.0.AppImage
-telegram
-firefox
-discord_arch_electron
+yay -S flatpak firefox discord_arch_electron screenkey wget curl
+flatpak install flathub org.telegram.desktop
+
+mkdir $HOME/Applications
+wget -P $HOME/Applications https://github.com/Figma-Linux/figma-linux/releases/download/v0.10.0/figma-linux_0.10.0_linux_x86_64.AppImage
+wget -P $HOME/Applications https://github.com/OneMoreGres/ScreenTranslator/releases/download/3.3.0/ScreenTranslator-3.3.0.AppImage
+wget -P $HOME/Applications https://electron-dl.todoist.com/linux/Todoist-1.0.9.AppImage
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 ```
