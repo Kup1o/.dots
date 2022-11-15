@@ -2,7 +2,7 @@
 1. Install Arch Linux using [Installation guide](https://wiki.archlinux.org/title/Installation_guide)
 2. Install Xorg & i3
 ```
-pacman -S i3-gaps xorg xorg-xinit xterm
+pacman -S i3-gaps i3status xorg xorg-xinit xterm
 ```
 3. Install yay
 ```
