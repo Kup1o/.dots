@@ -212,10 +212,9 @@ bar {
 }
 
 bindsym Mod4+x exec betterlockscreen -l dim
-bindsym Mod4+e exec sh $HOME/.config/rofi/scripts/rofi_edit
+bindsym Mod4+y exec sh $HOME/.config/rofi/scripts/rofi_edit
 bindsym Mod4+q exec sh $HOME/.config/rofi/scripts/rofi_power
 bindsym Mod4+i exec sh $HOME/.config/rofi/scripts/rofi_wifi
 bindsym Mod4+b exec sh $HOME/.config/rofi/scripts/rofi_blue
-bindsym Mod4+w exec sh $HOME/.config/rofi/scripts/rofi_scrot
 bindsym Mod4+z exec sh $HOME/.config/rofi/scripts/rofi_emoji
 bindsym Mod4+t exec sh $HOME/.config/rofi/scripts/rofi_scrot
