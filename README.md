@@ -56,3 +56,11 @@ wget -P $HOME/Applications https://github.com/OneMoreGres/ScreenTranslator/relea
 wget -P $HOME/Applications https://electron-dl.todoist.com/linux/Todoist-1.0.9.AppImage
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 ```
+13. Install redshift
+```
+yay -S redshift
+```
+14. Install pulseaudio & alsamixer
+```
+yay -S pulseaudio alsasmixer
+```
