@@ -64,3 +64,12 @@ yay -S redshift
 ```
 yay -S pulseaudio alsasmixer
 ```
+15. Install cursor
+```
+wget https://github.com/ful1e5/Bibata_Cursor/releases/download/latest/Bibata-Modern-Classic.tar.gz
+mkdir ~/.icons
+mv Bibata-Modern-Classic.tar.gz ~/.icons
+cd ~/.icons
+yay -S tar
+tar xvf Bibata-Modern-Classic.tar.gz
+```
