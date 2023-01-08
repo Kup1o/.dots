@@ -20,9 +20,9 @@ chsh $(which zsh)
 ```
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-6. Install kitty
+6. Install alacritty
 ```
-yay -S kitty
+yay -S alacritty
 ```
 7. Install nvim & nvchad & nerd fonts
 ```
