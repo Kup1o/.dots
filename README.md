@@ -26,7 +26,7 @@ yay -S kitty
 ```
 7. Install nvim & nvchad & nerd fonts
 ```
-yay -S neovim noto-fonts-cjk ripgrep zip unzip
+yay -S neovim nerd-fonts-agave ripgrep zip unzip
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 ```
 8. Install fcitx5
