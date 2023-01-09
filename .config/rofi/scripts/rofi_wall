@@ -28,7 +28,7 @@ option5="Scale"
 options="$option1\n$option2\n$option3\n$option4\n$option5"
 
 ## MAIN ACTION ##
-action=$(echo -e "$options" | rofi -dmenu -l 10 -b -i -p "Chose the format:")
+action=$(echo -e "$options" | rofi -dmenu -l 10 -b -i -p "Choose the format:")
 case "$action" in
     $option1*)
         feh --bg-fill "$chosenwall";;
