@@ -35,7 +35,7 @@ yay -S fcitx5-im fcitx5-configtool fcitx-hangul
 ```
 9. Install rofi & dependencies for custom scripts
 ```
-yay -S rofi scrot dmenu libnotify dunst bluez-utils power-profiles-daemon python-gobject fd feh networkmanager iw iwd
+yay -S rofi scrot dmenu libnotify dunst bluez-utils power-profiles-daemon python-gobject fd feh iw iwd
 ```
 10. Install betterlockscreen
 ```

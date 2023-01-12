@@ -2,7 +2,7 @@
 
 # ***This script was made by Clay Gomera (Drake)***
 #  - Description: A simple wifi rofi script
-#  - Dependencies: rofi, NetworkManager
+#  - Dependencies: rofi, iw, iwd, libnotify
 
 ## ROFI VARIABLES ##
 ROFI1="rofi -dmenu -l 10 -b -i -p"
