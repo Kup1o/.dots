@@ -1,3 +1,4 @@
+/* Rofi scripts was credit by https://www.reddit.com/r/unixporn/comments/xe4092/awesome_finally_my_greatest_rice_also_with_some/ */
 @theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
 configuration {
     font: "mononoki Nerd Font 14";
