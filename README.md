@@ -26,7 +26,7 @@ yay -S alacritty
 ```
 7. Install nvim & nvchad & nerd fonts
 ```
-yay -S neovim nerd-fonts-agave ripgrep zip unzip xclip
+yay -S neovim ttf-agave-nerd ripgrep zip unzip xclip
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 ```
 8. Install fcitx5
