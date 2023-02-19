@@ -1,5 +1,5 @@
 fcitx5 -d &
-feh --bg-fill $HOME/wall/106.jpg
+feh --bg-fill $HOME/pictures/wallpapers/nezukokamado.jpg
 redshift -PO 2000 -b 0.8
-betterlockscreen -u $HOME/wall/106.jpg -w blur
+dunst &
 exec i3
