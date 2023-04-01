@@ -445,7 +445,7 @@ font:
 #
 # https://stackoverflow.com/questions/67463932/is-it-possible-to-make-alacritty-starts-with-tmux
 shell:
-  program: /usr/local/bin/tmux
+  program: "$(which tmux)"
   args:
     - new-session
     - -A
