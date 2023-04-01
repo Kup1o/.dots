@@ -7,14 +7,14 @@ pacman -S i3-gaps i3status xorg xorg-xinit xterm
 3. Install yay
 ```
 pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
 makepkg -si
 ```
 4. Install zsh
 ```
 yay -S zsh
-chsh $(which zsh)
+chsh -s $(which zsh) $USER
 ```
 5. Install oh-my-zsh
 ```
@@ -31,7 +31,7 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 ```
 8. Install fcitx5
 ```
-yay -S fcitx5-im fcitx5-configtool fcitx-hangul
+yay -S fcitx5 fcitx5-im fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-hangul
 ```
 9. Install rofi & dependencies for custom scripts
 ```
@@ -47,15 +47,30 @@ yay -S tmux
 ```
 12. Install AppImages
 ```
-yay -S flatpak firefox discord_arch_electron screenkey wget curl
-flatpak install flathub org.telegram.desktop
-
-mkdir $HOME/Applications
-wget -P $HOME/Applications https://github.com/Figma-Linux/figma-linux/releases/download/v0.10.0/figma-linux_0.10.0_linux_x86_64.AppImage
-wget -P $HOME/Applications https://github.com/OneMoreGres/ScreenTranslator/releases/download/3.3.0/ScreenTranslator-3.3.0.AppImage
-wget -P $HOME/Applications https://electron-dl.todoist.com/linux/Todoist-1.0.9.AppImage
-wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+yay -S firefox discord_arch_electron screenkey wget curl
 ```
+
+```
+#!/bin/bash
+
+# Set the URLs of the packages to download
+urls=(
+    "https://github.com/OneMoreGres/ScreenTranslator/releases/latest"
+    "https://github.com/obsidianmd/obsidian-releases/releases/latest"
+)
+
+# Loop through the URLs and download the latest release package for each one
+for url in "${urls[@]}"
+do
+    # Use the GitHub API to get the latest release version and package URL for the URL
+    latest_release=$(curl --silent "$url" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    package_url=$(curl --silent "$url" | grep -Eo 'href="([^"#]+)"' | grep -m 1 '.AppImage')
+
+    # Download the latest release package using wget
+    wget $package_url -O "${url##*/}-$latest_release.AppImage"
+done
+```
+
 13. Install redshift
 ```
 yay -S redshift
