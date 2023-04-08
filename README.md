@@ -47,7 +47,7 @@ yay -S tmux
 ```
 12. Install AppImages
 ```
-yay -S firefox discord_arch_electron screenkey wget curl
+yay -S firefox discord_arch_electron screenkey wget curl 4kvideodownloader wine imagemagick
 ```
 
 ```
@@ -69,6 +69,10 @@ do
     # Download the latest release package using wget
     wget $package_url -O "${url##*/}-$latest_release.AppImage"
 done
+```
+
+```
+wget -P /usr/bin/ https://github.com/PaddiM8/kalker/releases/latest/download/kalker-linux
 ```
 
 13. Install redshift
