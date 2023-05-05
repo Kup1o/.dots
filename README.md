@@ -92,3 +92,7 @@ cd ~/.icons
 yay -S tar
 tar xvf Bibata-Modern-Classic.tar.gz
 ```
+16. Install safeeyes
+```
+yay -S safeeyes
+```
