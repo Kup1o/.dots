@@ -41,6 +41,10 @@ yay -S rofi scrot dmenu libnotify dunst bluez-utils power-profiles-daemon python
 ```
 yay -S betterlockscreen
 ```
+Setup betterlockscreen background as of [514b949](https://github.com/kup1o/.dots/commit/514b949)
+```
+betterlockscreen -u /path/to/photo
+```
 11. Install tmux
 ```
 yay -S tmux
