@@ -99,3 +99,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# git working directory
+# gwd https://github.com/kup1o/.dots
+# https://stackoverflow.com/questions/59392153/git-clone-and-cd-into-it#59392290
+function gwd {
+  git clone $1 && cd "$(basename "$_" .git)"
+}
