@@ -106,3 +106,7 @@ source $ZSH/oh-my-zsh.sh
 function gwd {
   git clone $1 && cd "$(basename "$_" .git)"
 }
+# github directory
+function ghd {
+  gh repo clone $1 && cd "$(basename "$_" .git)"
+}
