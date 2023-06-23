@@ -443,15 +443,6 @@ font:
 #  args:
 #    - --login
 #
-# https://stackoverflow.com/questions/67463932/is-it-possible-to-make-alacritty-starts-with-tmux
-shell:
-  program: "$(which tmux)"
-  args:
-    - new-session
-    - -A
-    - -D
-    - -s
-    - main
 
 # Startup directory
 #
