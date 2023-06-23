@@ -24,9 +24,9 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ```
 yay -S alacritty
 ```
-7. Install nvim & nvchad & nerd fonts
+7. Install nvim & fonts & nvchad
 ```
-yay -S neovim ttf-agave-nerd ripgrep zip unzip xclip
+yay -S neovim ttf-agave-nerd noto-fonts-{cjk,emoji,extra} ripgrep zip unzip xclip
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 ```
 8. Install fcitx5
