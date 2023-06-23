@@ -1,0 +1,10 @@
+[Desktop Entry]
+Comment=Screen capture, OCR and translation tool.
+Exec=/usr/lib/screentranslator/launch.sh
+GenericName=Screen Translator
+Name=ScreenTranslator
+Icon=/usr/share/pixmaps/screentranslator.png
+Terminal=false
+Type=Application
+Categories=Utility;Core;Qt;
+X-AppImage-Version=3.3.0

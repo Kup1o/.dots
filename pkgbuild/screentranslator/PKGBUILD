@@ -1,0 +1,31 @@
+# Maintainer: kup1o <kup1o@pm.me>
+_pkgname="ScreenTranslator"
+pkgname="screentranslator"
+pkgver=3.3.0
+pkgrel=1
+pkgdesc="Screen capture, OCR and translation tool."
+arch=('x86_64')
+provides=("${pkgname}")
+conflicts=("${pkgname}")
+url="https://github.com/OneMoreGres/$_pkgname"
+license=('MIT')
+source=("$url/releases/download/$pkgver/$_pkgname-$pkgver.AppImage")
+sha256sums=('SKIP')
+
+pkgver() {
+  api_url="https://api.github.com/repos/OneMoreGres/ScreenTranslator/releases/latest"
+  curl --silent "$api_url" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+}
+
+package() {
+  mkdir -p ${pkgdir}/usr/lib/${pkgname}/
+  mkdir -p ${pkgdir}/usr/share/applications/
+  mkdir -p ${pkgdir}/usr/share/pixmaps/
+  cp ${srcdir}/launch.sh ${pkgdir}/usr/lib/${pkgname}/launch.sh
+  cp ${srcdir}/screentranslator.desktop ${pkgdir}/usr/share/applications/
+  cp ${srcdir}/screentranslator.png ${pkgdir}/usr/share/pixmaps/
+}
+
+post_remove() {
+  chmod 777 /usr/lib/screentranslator/launch.sh
+}
