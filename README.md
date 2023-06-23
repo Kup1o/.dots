@@ -100,3 +100,7 @@ tar xvf Bibata-Modern-Classic.tar.gz
 ```
 yay -S safeeyes
 ```
+17. Install screentime
+```
+sudo curl -o /usr/bin/screentime -LJ https://github.com/kup1o/screentime/releases/download/0.2.0/screentime
+```
