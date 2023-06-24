@@ -110,3 +110,6 @@ function gwd {
 function ghd {
   gh repo clone $1 && cd "$(basename "$_" .git)"
 }
+# screentime
+# https://github.com/kup1o/screentime
+alias stime="curl http://localhost:8465/inlinehms"
