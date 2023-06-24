@@ -64,6 +64,35 @@ local plugins = {
         })
     end
   },
+
+  {
+    "windwp/nvim-autopairs",
+    opts = {
+      fast_wrap = {},
+      disable_filetype = { "TelescopePrompt", "vim" },
+    },
+    config = function(_, opts)
+      require("nvim-autopairs").setup(opts)
+
+      -- setup cmp for autopairs
+      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+      require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+      local npairs = require "nvim-autopairs"
+      local Rule = require "nvim-autopairs.rule"
+      local cond = require "nvim-autopairs.conds"
+      -- Auto-closing for vertical bar (|)
+      npairs.add_rules {
+        Rule('|', '|')
+          :with_pair(cond.not_before_regex_check('[%w%_|]'))
+      }
+      -- Auto-closing for angle brackets (<>)
+      npairs.add_rules {
+        Rule('<', '>')
+          :with_pair(cond.not_before_regex_check('[%w%_>]'))
+      }
+    end,
+  },
 }
 
 return plugins
