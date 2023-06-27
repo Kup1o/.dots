@@ -104,3 +104,7 @@ yay -S safeeyes
 ```
 sudo curl -o /usr/bin/screentime -LJ https://github.com/kup1o/screentime/releases/download/0.2.0/screentime
 ```
+18. Install flameshot
+```
+yay -S flameshot
+```
