@@ -108,3 +108,12 @@ sudo curl -o /usr/bin/screentime -LJ https://github.com/kup1o/screentime/release
 ```
 yay -S flameshot
 ```
+19. Build and install ctags for tagbar.nvim plugin
+```
+git clone https://github.com/universal-ctags/ctags.git
+cd ctags
+./autogen.sh
+./configure
+make
+make install
+```
