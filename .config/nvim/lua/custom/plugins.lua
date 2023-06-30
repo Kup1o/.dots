@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -15,17 +15,43 @@ local plugins = {
           require "custom.configs.null-ls"
         end,
       },
+
+      {
+        "simrat39/rust-tools.nvim",
+        config = function()
+          local rt = require "rust-tools"
+          rt.setup {
+            server = {
+              on_attach = function(_, bufnr)
+                -- Hover actions
+                vim.keymap.set("n", "<Leader>ah", rt.hover_actions.hover_actions, { buffer = bufnr })
+                -- Code action groups
+                vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+              end,
+            },
+          }
+        end,
+      },
     },
+
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
 
-  -- overrde plugin configs
+  -- override plugin configs
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason,
+  },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+    dependencies = {
+      { "HiPhish/nvim-ts-rainbow2" },
+    },
   },
 
   {
@@ -48,21 +74,23 @@ local plugins = {
   --   enabled = false
   -- },
 
-  -- Uncomment if you want to re-enable which-key
+  -- All NvChad plugins are lazy-loaded by default
+  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
+  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
   -- {
-  --   "folke/which-key.nvim",
-  --   enabled = true,
-  -- },
-
+  --   "mg979/vim-visual-multi",
+  --   lazy = false,
+  -- }
+  --
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
   },
 
   {
@@ -83,15 +111,78 @@ local plugins = {
       local cond = require "nvim-autopairs.conds"
       -- Auto-closing for vertical bar (|)
       npairs.add_rules {
-        Rule('|', '|')
-          :with_pair(cond.not_before_regex_check('[%w%_|]'))
+        Rule("|", "|"):with_pair(cond.done "[%w%_|]"),
       }
       -- Auto-closing for angle brackets (<>)
       npairs.add_rules {
-        Rule('<', '>')
-          :with_pair(cond.not_before_regex_check('[%w%_>]'))
+        Rule("<", ">"):with_pair(cond.done "[%w%_>]"),
       }
     end,
+  },
+
+  -- Completion framework:
+  { "hrsh7th/nvim-cmp" },
+
+  -- LSP completion source:
+  { "hrsh7th/cmp-nvim-lsp" },
+
+  -- Useful completion sources:
+  { "hrsh7th/cmp-nvim-lua" },
+  { "hrsh7th/cmp-nvim-lsp-signature-help" },
+  { "hrsh7th/cmp-vsnip" },
+  { "hrsh7th/cmp-path" },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/vim-vsnip" },
+
+  {
+    "phaazon/hop.nvim",
+    branch = "v2",
+    cmd = {
+      "HopWord",
+      "HopChar1",
+      "HopChar2",
+      "HopPattern",
+      "HopLine",
+      "HopLineStart",
+      "HopAnywhere",
+    },
+    config = function()
+      require("hop").setup()
+    end,
+  },
+
+  -- pretty diagnostics panel
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    config = function()
+      require("trouble").setup()
+    end,
+    dependencies = {
+      {
+        "folke/todo-comments.nvim",
+        config = function()
+          require("todo-comments").setup {
+            keywords = {
+              HACK = { icon = " ", color = "warning" },
+              NOTE = { icon = "✎ ", color = "hint", alt = { "INFO" } },
+            },
+          }
+        end,
+        dependencies = { "nvim-lua/plenary.nvim" },
+      },
+    },
+  },
+
+  {
+    "preservim/tagbar",
+    event = "VeryLazy",
+  },
+
+  {
+    "folke/zen-mode.nvim",
+    dependencies = { "folke/twilight.nvim" },
+    event = "VeryLazy",
   },
 }
 
