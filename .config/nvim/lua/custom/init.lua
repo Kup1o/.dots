@@ -56,7 +56,7 @@ vim.api.nvim_set_option("updatetime", 300)
 -- Treesitter folding
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
-vim.o.foldminlines = 20
+vim.o.foldminlines = 38
 
 -- Caching modules
 vim.loader.enable()
