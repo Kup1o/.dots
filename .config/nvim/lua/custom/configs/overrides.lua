@@ -45,6 +45,7 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "prettier",
+    "emmet-ls",
 
     -- c/cpp stuff
     "clangd",
